@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> SignUp Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <style>
+        .text-danger{
+            color: red;
+
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+
+
+        ol,
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: #45a9bb;
+            background: -webkit-linear-gradient(to top, #45a9bb, #44a3c0);
+            background: -moz-linear-gradient(to top, #45a9bb, #44a3c0);
+            background: -o-linear-gradient(to top, #45a9bb, #44a3c0);
+            background: linear-gradient(to top, #45a9bb, #44a3c0);
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            color: #fff;
+            font-weight: 100;
+            text-transform: capitalize;
+            letter-spacing: 4px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /*-- main --*/
+
+
+        .main-agileinfo {
+            width: 35%;
+            margin: 3em auto;
+            background: rgba(0, 0, 0, 0.18);
+            background-size: cover;
+        }
+
+        .agileits-top {
+            padding: 3em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            font-size: 0.9em;
+            color: #fff;
+            font-weight: 100;
+            width: 94.5%;
+            display: block;
+            border: none;
+            margin: .8em;
+            padding: 0.8em;
+            border: solid 1px rgba(255, 255, 255, 0.37);
+            -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+            transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+            background-position: -800px 0;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"]:focus {
+            outline: none;
+            color: brown;
+            
+        }
+        .text:focus,
+        .text:valid {
+            box-shadow:none;
+            outline:none;
+            background-position: 0 0;
+        }
+
+        .text:focus::-webkit-input-placeholder,
+        .text:valid::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: .9em;
+            -webkit-transform: translateY(-30px);
+            -moz-transform: translateY(-30px);
+            -o-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            transform: translateY(-30px);
+            visibility: visible !important;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #fff;
+            font-weight: 100;
+        }
+
+
+
+
+        button[type="submit"] {
+            font-size: .9em;
+            color: #fff;
+            background: #45a9bb;
+            outline: none;
+            border: 1px solid #45a9bb;
+            cursor: pointer;
+            padding: 0.9em;
+            -webkit-appearance: none;
+            width: 100%;
+            margin: 2em 0;
+            letter-spacing: 4px;
+        }
+
+        button[type="submit"]:hover {
+            -webkit-transition: .5s all;
+            -moz-transition: .5s all;
+            -o-transition: .5s all;
+            -ms-transition: .5s all;
+            transition: .5s all;
+            background: #44a3c0;
+        }
+
+        .agileits-top p {
+            font-size: 1em;
+            color: rgba(255, 0, 0, 0.466);
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: bold;
+            
+        }
+
+       
+
+       
+       
+
+        @keyframes rippling {
+            50% {
+                border-left-color: #fff;
+            }
+
+            100% {
+                border-bottom-color: #fff;
+                border-left-color: #fff;
+            }
+        }
+
+
+
+        .wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .colorlib-bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .colorlib-bubbles li {
+            position: absolute;
+            list-style: none;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.15);
+            bottom: -160px;
+            animation: square 20s infinite;
+            transition-timing-function: linear;
+
+            border-radius: 50%;
+        }
+
+        .colorlib-bubbles li:nth-child(1) {
+            left: 10%;
+        }
+
+        .colorlib-bubbles li:nth-child(2) {
+            left: 20%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 2s;
+            animation-duration: 17s;
+        }
+
+        .colorlib-bubbles li:nth-child(3) {
+            left: 25%;
+
+            animation-delay: 4s;
+        }
+
+        .colorlib-bubbles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 22s;
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .colorlib-bubbles li:nth-child(5) {
+            left: 70%;
+        }
+
+        .colorlib-bubbles li:nth-child(6) {
+            left: 80%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 3s;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .colorlib-bubbles li:nth-child(7) {
+            left: 32%;
+            width: 160px;
+            height: 160px;
+            animation-delay: 7s;
+        }
+
+        .colorlib-bubbles li:nth-child(8) {
+            left: 55%;
+            width: 20px;
+            height: 20px;
+
+            animation-delay: 15s;
+
+            animation-duration: 40s;
+        }
+
+        .colorlib-bubbles li:nth-child(9) {
+            left: 25%;
+            width: 10px;
+            height: 10px;
+
+            animation-delay: 2s;
+
+            animation-duration: 40s;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .colorlib-bubbles li:nth-child(10) {
+            left: 90%;
+            width: 160px;
+            height: 160px;
+
+            animation-delay: 11s;
+        }
+
+        @-webkit-keyframes square {
+            0% {
+
+                transform: translateY(0);
+            }
+
+            100% {
+
+                transform: translateY(-700px) rotate(600deg);
+            }
+        }
+
+        @keyframes square {
+            0% {
+
+                transform: translateY(0);
+            }
+
+            100% {
+
+                transform: translateY(-700px) rotate(600deg);
+            }
+        }
+
+        /*-- responsive-design --*/
+        @media(max-width:1440px) {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 94%;
+            }
+        }
+
+        @media(max-width:1366px) {
+            h1 {
+                font-size: 2.6em;
+            }
+
+            .agileits-top {
+                padding: 2.5em;
+            }
+
+            .main-agileinfo {
+                margin: 2em auto;
+            }
+
+            .main-agileinfo {
+                width: 36%;
+            }
+        }
+
+        @media(max-width:1280px) {
+            .main-agileinfo {
+                width: 40%;
+            }
+        }
+
+        @media(max-width:1080px) {
+            .main-agileinfo {
+                width: 46%;
+            }
+        }
+
+        @media(max-width:1024px) {
+            .main-agileinfo {
+                width: 49%;
+            }
+        }
+
+        @media(max-width:991px) {
+            h1 {
+                font-size: 2.4em;
+            }
+
+            .main-w3layouts {
+                padding: 2em 0 1em;
+            }
+        }
+
+        @media(max-width:900px) {
+            .main-agileinfo {
+                width: 58%;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 93%;
+            }
+        }
+
+        @media(max-width:800px) {
+            h1 {
+                font-size: 2.2em;
+            }
+        }
+
+
+
+        @media(max-width:600px) {
+            .agileits-top {
+                padding: 2.2em;
+            }
+
+            input.email,
+            input.text.w3lpass {
+                margin: 1.5em 0;
+            }
+
+            button[type="submit"] {
+                margin: 2em 0;
+            }
+
+            h1 {
+                font-size: 2em;
+                letter-spacing: 3px;
+            }
+        }
+
+
+
+
+        @media(max-width:480px) {
+            h1 {
+                font-size: 1.8em;
+                letter-spacing: 3px;
+            }
+
+            .agileits-top {
+                padding: 1.8em;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 91%;
+            }
+
+            .agileits-top p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media(max-width:414px) {
+            h1 {
+                font-size: 1.8em;
+                letter-spacing: 2px;
+            }
+
+            button[type="submit"] {
+                margin: 2em 0 1.5em;
+                letter-spacing: 3px;
+            }
+
+
+
+
+        }
+
+
+
+        @media(max-width:320px) {
+
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 89.5%;
+                font-size: 0.85em;
+            }
+
+            h1 {
+                font-size: 1.7em;
+                letter-spacing: 0px;
+            }
+
+            .main-agileinfo {
+                width: 92%;
+                margin: 1em auto;
+            }
+
+            .text:focus,
+            .text:valid {
+                background-position: 0 0px;
+            }
+
+            --+button[type="submit"] {
+                margin: 1.5em 0;
+                padding: 0.8em;
+                font-size: .85em;
+            }
+
+
+        }
+
+        .error {
+            border: 4px solid red;
+            width: 400px;
+            height: 40px;
+            margin-left: 30;
+        }
+
+        .success {
+
+            border: 4px solid rgb(79, 110, 29);
+            width: 400px;
+            height: 40px;
+            margin-left: 30;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+        <h1>SignUp </h1>
+        <div class="main-agileinfo">
+            <div class="agileits-top">
+                <form action="#" id="regis" class="row position-relative flex-column " >
+
+                    <input type="text" name="textf" placeholder="Your first name"
+                        class=" bg-white col-11 mt-3 form-control" id="fname" >
+                        <p class="text-danger" id="validation-name"></p>
+
+
+                    <input type="text" name="texts" placeholder="Your second name"
+                        class=" bg-white col-11  form-control" id="sname">
+                        <p class="text-danger" id="validation-lname"></p>
+
+                    <input type="text" name="address" placeholder="Your Address"
+                        class=" bg-white col-11 mt-3 form-control" id="add">
+                        <p class="text-danger" id="validation-Adress"></p>
+
+                    <input type="email" name="email" placeholder="Your email" class=" bg-white col-11 mt-3 form-control"
+                        id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <p class="text-danger" id="validation-email"></p>
+
+                    <input type="text" name="age" placeholder="Your Age" class=" bg-white m-1 col-11 mt-3 form-control"
+                        id="age">
+
+                        <p class="text-danger" id="validation-age"></p>
+
+                    <input type="text" name="userName" placeholder=" enter your userName "
+                        class=" white col-11 mt-3 form-control" id="username">
+
+
+                    <input type="password" name="pass" placeholder=" enter your password "
+                        class=" white col-11 mt-3 form-control" id="password">
+                        <p class="text-danger register-validation pt-4"></p>
+
+                    <button type="submit" id="regist" class="btn btn-primary text-uppercase sbmt-btn col-11 ml-3"
+                       >submit</button>
+
+                </form>
+                <p>Don't have an Account? <a href="Login.html"> Login Now!</a></p>
+            </div>
+        </div>
+
+
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+            
+
+    </script>
+    <script src="js/JQuery-3.3.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

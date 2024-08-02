@@ -1,0 +1,220 @@
+
+<html>
+
+<head>
+    <title>attendance</title>
+    <link rel="stylesheet" href="subadminatt.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        window.addEventListener('load', function () {
+            username = document.getElementById('user_name');
+            usernamespan = document.getElementById('spantxt');
+            usernames = document.getElementById('empel');
+            attan = document.getElementById('att');
+            saved = document.getElementById('savess');
+
+
+            let arr = [];
+            let _url = "./alldata.json";
+
+            $.ajax({
+                url: _url,
+                type: "get",
+                success: function (data) {
+
+                    arr = data;
+
+
+                },
+                error: function err() {
+                    console.log("Error Mesage!!");
+                }
+
+            });
+
+
+            $(" #Attbtn").click(function () {
+
+                var date = new Date;
+                var seconds = date.getSeconds();
+                var minutes = date.getMinutes();
+                var hour = date.getHours();
+
+                var year = date.getFullYear();
+                var month = date.getMonth(); //  January = 0, February = 1
+                var day = date.getDate();
+
+                for (var i = 0; i < arr.length; i++) {
+                    if ($('#user_name').val() == arr[i].userName) {
+                        arr[i].time= hour + ":" + minutes + ":" + seconds + " _ " + day + "/" + month + "/" + year;
+
+
+                        var lateCount = parseInt(arr[i].late);
+                        var abscenceCount = arr[i].abscent;
+                        var excuseCount = parseInt(arr[i].excuse);
+                        if (hour <= '9') {
+                            arr[i].attendance++;
+                            arr[i].late = lateCount;
+                            arr[i].abscent = abscenceCount;
+                            arr[i].excuse = excuseCount;
+                            console.log("in time");
+                        }
+                        else if (hour = '9' && minutes <= '15') {
+                            arr[i].attendance = arr[i].attendance + 1;
+                            arr[i].late = lateCount + 1;
+                            arr[i].abscent = abscenceCount;
+                            arr[i].excuse = excuseCount;
+                            console.log("late");
+
+                        }
+                        else {
+                            arr[i].late = lateCount;
+                            arr[i].abscent = abscenceCount + 1;
+                            arr[i].excuse = excuseCount;
+                            console.log("absent");
+                        }
+                        console.log(arr);
+
+                    }
+                }
+                const obj = {
+                    "username": username.value
+                };
+                console.log(obj);
+                sessionStorage.setItem('uusername', JSON.stringify(obj));
+
+            });
+            $(" #excbtn").click(function () {
+
+                for (var i = 0; i < arr.length; i++) {
+                    if ($('#user_name').val() == arr[i].userName) {
+
+                        arr[i].excuse = arr[i].excuse+1;
+                        var _StoreData = new Blob([JSON.stringify(arr)], { type: "appliction/json" });
+                        var Linkelement = document.createElement("a");
+                        Linkelement.href = window.webkitURL.createObjectURL(_StoreData);
+                        Linkelement.setAttribute("download", "./alldata.json");
+                        document.body.appendChild(Linkelement);
+                        Linkelement.click();
+                        document.body.removeChild(Linkelement);
+
+                    }
+                }
+            })
+
+            console.log(arr);
+            $("#disp").click(function () {
+                $("#divvs").show();
+
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].userName == username.value) {
+                        usernames.value = arr[i].name;
+                        attan.value = arr[i].time;
+
+                    }
+                };
+            });
+
+
+
+
+            $("#closee").click(function () {
+                $("#divvs").hide();
+            });
+
+          
+
+
+       
+
+
+
+
+           $("#savess").click(function(){
+
+                console.log(arr);
+                var _StoreData = new Blob([JSON.stringify(arr)], { type: "appliction/json" });
+                var Linkelement = document.createElement("a");
+                Linkelement.href = window.webkitURL.createObjectURL(_StoreData);
+                Linkelement.setAttribute("download", "./alldata.json");
+                document.body.appendChild(Linkelement);
+                Linkelement.click();
+                document.body.removeChild(Linkelement);
+            });
+
+        });//end of load
+
+        function isValiduserName() {
+            var username = document.getElementById("user_name").value;
+            var letters = /^[A-Za-z]+$/;
+            if (username == '') {
+
+                alert('Please enter your  username');
+            }
+            else if (!letters.test(username)) {
+                alert(' First Name field required only alphabet characters');
+             
+            }
+            else {
+                document.getElementById('user_name').className = 'success';
+
+            }
+        }
+
+    </script>
+</head>
+
+
+<body>
+    <form method="POST" action="#" name="formm">
+        <div id="dd" class="col-6 col-sm-4 col-md-9 col-lg-6">
+            <h1><b>ATTENDENCE MANAGEMENT</b></h1>
+        </div>
+        <div class="con">
+            <div class="fontuser">
+                <label id="firsttext" class="col-sm-2"><b>Username</b></label>
+                <i class="fa fa-user fa-lg"></i>
+                <input type="text" id="user_name" name="usertname" required></li>
+
+            </div>
+
+            <span id="spantxt"> enter valid user name</span>
+            <input type="button" value="CONFIRM ATTENDENCE" id="Attbtn" />
+            <input type="button" value="excuse" id="excbtn" />
+            <input type="button" value="Display" id="disp" />
+            <input type="button" value="save" id="savess" />
+            <a  type="button" href="Login.html">return</a>
+
+        </div>
+
+
+
+
+        <div class="divatt" id="divvs">
+            <div class="nn ">
+
+                <input type="text" value="Employee name:" id="emp" readonly />
+                <input type="text" id="empel" readonly /> <br><br><br>
+            </div>
+
+
+            <div>
+                <input type="text" value="attendanceTime_ Date" id="timeing" readonly />
+                <input type="text" id="att" readonly />
+
+            </div>
+
+
+            <input type="button" value="exit " id="closee" />
+
+        </div>
+
+
+
+    </form>
+    <script src="js/JQuery-3.3.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.js"></script> 
+</body>
+
+</html>

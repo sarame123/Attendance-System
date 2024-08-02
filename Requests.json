@@ -1,0 +1,20 @@
+[
+    {
+        "firstName": "sara",
+        "lastName": "mohamed",
+        "address": "mit",
+        "email": "sara23@gmail.com",
+        "age": "20",
+        "userName": "hager1223",
+        "password": "8789798"
+    },
+    {
+        "firstName": "soha",
+        "lastName": "emad",
+        "address": "cairo",
+        "email": "hsoha23@gmail.com",
+        "age": "22",
+        "userName": "soha1223",
+        "password": "304050"
+    }
+]

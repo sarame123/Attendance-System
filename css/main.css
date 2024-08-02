@@ -1,0 +1,29 @@
+body {
+    padding-top: 10px;
+    background-image: url(../img/preview.jpg);
+    background-size:100% 100% ;
+    position: relative;
+}
+.buttons{
+    position: absolute;
+    top: 73%;
+    left: 8%;
+}
+.buttons a{
+    background-color: #004EF7;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+
+.container {
+
+    margin-bottom: auto;
+    margin-left: 200px;
+
+
+}
+
+
+

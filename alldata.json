@@ -1,0 +1,54 @@
+[
+    {
+        "userName": "sara",
+        "password": "1234"
+    },
+    {
+        "userName": "hend33",
+        "code": "hend13",
+        "password": "786ab",
+        "name": "hend mohamed",
+        "attendance": 0,
+        "excuse": "0",
+        "late": "0",
+        "abscent": "0",
+        "time": "0",
+        "state": ""
+    },
+    {
+        "userName": "ahmed123",
+        "code": "ahmed93",
+        "password": "1234abc",
+        "name": "ahmed mohamed",
+        "attendance": "0",
+        "excuse": "0",
+        "late": "0",
+        "abscent": "0",
+        "time": "0",
+        "state": ""
+    },
+    {
+        "userName": "hager243",
+        "code": "hager43",
+        "password": "12345",
+        "name": "hager morsi",
+        "attendance": "0",
+        "excuse": 2,
+        "late": 0,
+        "abscent": 4,
+        "time": "23:57:1 _ 15/10/2023",
+        "state": "abscent"
+    },
+    {
+        "userName": "rehab292",
+        "code": "rehab77",
+        "password": "12876",
+        "name": "rehab",
+        "attendance": "0",
+        "excuse": 2,
+        "late": 0,
+        "abscent": 1,
+        "time": "23:57:46 _ 15/10/2023",
+        "state": ""
+    }
+]
