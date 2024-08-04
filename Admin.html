@@ -1,234 +1,311 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/font-awesome.css" rel="stylesheet" />
     <style>
-     
         #admin {
 
-border-radius: 50%;
-background-color: rgba(247, 0, 255, 0.945);
-margin-bottom: 20px;
+            border-radius: 50%;
+            background-color: rgba(247, 0, 255, 0.945);
+            margin-bottom: 20px;
 
-}
+        }
 
-#requstesTable {
-width: 70%;
-border: 2px solid black;
-margin-top: 250px;
-margin-left: 10%;
-margin-right: 50px;
-margin: 2px;
-padding: 8px;
-color: rgb(74, 139, 74);
+        #requests {
+            border: 2px solid black;
+            margin-top: 50px;
+            color: rgb(74, 139, 74);
+            text-align: center;
 
-text-align: center;
+        }
 
-}
+        @media screen and (min-width: 0px) and (max-width: 600px) {
+          
+    table  #requests{
+        width: 100%;
+    }
+    #requests th{
+        display: none;
+    }
+    #requests td{
+        display: block;
+        padding: .5rem;
+    }
+   
+  
+    #requests  th, td {
+    font-size: 20px;
+  }
+            #requests tr td {
+    min-width: 100px;
+  }
+       
 
-#empTable,
-#FulReptable,
-#LateTable,
-#excuseTable {
-width: 30%;
-border: 2px solid black;
-margin-top: 250px;
-margin-left: 10%;
-margin-right: 50px;
-margin: 2px;
-padding: 8px;
-color: rgb(74, 139, 74);
-text-align: center;
 
-}
-#refuse{
-    background-color: green;
-}
-#accept{
-    background-color: green;
-}
+            #requests  {
+                border: 2px solid black;
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 30px;
+                color: rgb(74, 139, 74);
+                text-align: center;
 
+
+            }
+        }
+
+        @media screen and (min-width: 601px) and (max-width: 768px) {
+            table  #requests{
+        width: 100%;
+    }
+    #requests th{
+        display: none;
+    }
+    #requests td{
+        display: block;
+        padding: .5rem;
+    }
+   
+  
+    #requests  th, td {
+    font-size: 20px;
+  }
+            #requests tr td {
+    min-width: 100px;
+  }
+       
+
+
+            #requests  {
+                border: 2px solid black;
+                width: 90%;
+                margin: 0 auto;
+                margin-top: 30px;
+                color: rgb(74, 139, 74);
+                text-align: center;
+
+
+            }
+        }
+
+
+
+        #empTable,
+        #FulReptable,
+        #LateTable,
+        #excuseTable {
+            width: 30%;
+            border: 2px solid black;
+            margin-top: 250px;
+            margin-left: 10%;
+            margin-right: 50px;
+            margin: 2px;
+            padding: 8px;
+            color: rgb(74, 139, 74);
+            text-align: center;
+
+        }
+
+        #refuse {
+            background-color: green;
+        }
+
+        #accept {
+            background-color: green;
+        }
     </style>
-    
-        
-    
+
+
+
 </head>
+
 <body>
     <div class="container mt-4  ">
-       
+
         <a class="align-items-center" href="#">
             <input id="admin" type="button" value="sara mohamed"
                 class="btn btn-info m-2 col-sm-3 col-4 col-md-4 col-lg-4" data-toggle="modal" /></br>
         </a>
-      
+
         <div class="row text-center mt-5 gx-3">
-            <button  class="col-lg-3 btn btn-info col-md-2" id="allEmp">All Employees</button>
-            <button  class="col-lg-3 btn btn-info col-md-2"id="late">Late Report</button>
-            <button  class=" col-lg-3 btn btn-info col-md-2" id="excuse">Excuse Report</button>
-            <button  class="col-lg-3 btn btn-info col-md-2"  id="req">requests</button>
+            <button class="col-lg-3 btn btn-info col-md-2" id="allEmp">All Employees</button>
+            <button class="col-lg-3 btn btn-info col-md-2" id="late">Late Report</button>
+            <button class=" col-lg-3 btn btn-info col-md-2" id="excuse">Excuse Report</button>
+            <button class="col-lg-3 btn btn-info col-md-2" id="req">requests</button>
         </div>
         <div class="tbs  ">
-            <table class="table table-bordered table-responsive collapse w-100 " id="tblAll">   
-              
+            <table class="table table-bordered table-responsive collapse w-100 " id="tblAll">
+
             </table>
-            
-            <table class="table table-bordered table-striped  collapse w-100" id="tblLate">   
-          
+
+            <table class="table table-bordered table-striped  collapse w-100" id="tblLate">
+
             </table>
-            <table class="table table-bordered table-striped collapse w-100" id="tblExcuse">   
-               
+            <table class="table table-bordered table-striped collapse w-100" id="tblExcuse">
+
             </table>
-            <table class="table table-bordered table-striped  collapse w-100" id="tblBrief">   
-           
+            <table class="table table-bordered table-striped  collapse w-100" id="tblBrief">
+
             </table>
-            <table class="table table-bordered table-light collapse w-100" id="requests">
-             
+            <table class="table table-bordered table-light collapse " id="requests">
+                <div class="container">
+                    <div class="row">
+
+                    </div>
+                </div>
+
             </table>
 
         </div>
 
     </div>
-    
-    
-    
+
+
+
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <script src="js/JQuery-3.3.1.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.js"></script>
-    
-    <script >
-        let arr=[],arr1=[];
-      var ajaxrequests= function(){    // data from requests file
-            
+
+    <script>
+        let arr = [], arr1 = [];
+        var ajaxrequests = function () {    // data from requests file
+
             $.ajax({
-            url: './Requests.json',
+                url: './Requests.json',
                 type: "get",
                 success: function (res) {
-                   arr=res;
+                    arr = res;
                 },
                 error: function (ErrorMessage) {
                     console.log(ErrorMessage);
                 }
-             })
-             return arr;}
-             var ajaxempdata= function(){    // data from monthly attendance file
-            
+            })
+            return arr;
+        }
+        var ajaxempdata = function () {    // data from monthly attendance file
+
             $.ajax({
-            url: './alldata.json',
+                url: './alldata.json',
                 type: "get",
                 success: function (res) {
-                   arr1=res;
+                    arr1 = res;
                 },
                 error: function (ErrorMessage) {
                     console.log(ErrorMessage);
                 }
-             })
-             return arr1;}
-             ajaxempdata();      //arr1===> emp,arr==>req
-             ajaxrequests();
-             
-             $('#req').click(function(){ //requests button
-                 
-                 $("#requests tr").remove();
-                 $('#requests').append("<tr><th>First Name</th><th>second Name</th><th>Address</th><th>Email</th><th>Age</th></tr>");
-                 for(var i=0;i<arr.length;i++){
-                    $('#requests').append("<tr><td>"+arr[i].firstName+"</td><td>"+arr[i].lastName+"</td><td>"+arr[i].address+"</td><td>"+arr[i].email+"</td><td>"+arr[i].age+"</td><td><input type='checkbox' id='accept'  value='" + arr[i].email + "' name='" + arr[i].firstName + "'><button class='btn-success  rounded' value='"+arr[i].userName+"' id='"+arr[i].password+"'> accept</button></td><td><input type='checkbox'  id='refuse' value='" + arr[i].email + "' name='" + arr[i].firstName + "'  ><label> &nbsp;refuse</label></td</tr>");
+            })
+            return arr1;
+        }
+        ajaxempdata();      //arr1===> emp,arr==>req
+        ajaxrequests();
+
+        $('#req').click(function () { //requests button
+
+            $("#requests tr").remove();
+            $('#requests').append("<tr><th>First Name</th><th>second Name</th><th>Address</th><th>Email</th><th>Age</th></tr>");
+            for (var i = 0; i < arr.length; i++) {
+                $('#requests').append("<tr><td>" + arr[i].firstName + "</td><td>" + arr[i].lastName + "</td><td>" + arr[i].address + "</td><td>" + arr[i].email + "</td><td>" + arr[i].age + "</td><td><input type='checkbox' id='accept'  value='" + arr[i].email + "' name='" + arr[i].firstName + "'><button class='btn-success  rounded' value='" + arr[i].userName + "' id='" + arr[i].password + "'> accept</button></td><td><input type='checkbox'  id='refuse' value='" + arr[i].email + "' name='" + arr[i].firstName + "'  ><label> &nbsp;refuse</label></td</tr>");
+            }
+            $('#requests').toggle();
+
+        })
+        $('#allEmp').click(function () { //all empolyees  button
+
+            $("#tblAll tr").remove();
+
+            $('#tblAll').append("<tr><th>Name</th><th>Attendance</th><th>Excuse</th><th>late</th><th>Abscent</th></tr>");
+            for (var i = 1; i < arr1.length; i++) {
+                $('#tblAll').append("<tr><td>" + arr1[i].name + "</td><td>" + arr1[i].attendance + "</td><td>" + arr1[i].excuse + "</td><td>" + arr1[i].late + "</td><td>" + arr1[i].abscent + "</td></tr>");
+            }
+            $('#tblAll').toggle();
+        })
+        $('#late').click(function () { //late  button
+
+            $("#tblLate tr").remove();
+
+            $('#tblLate').append("<tr><th>Name</th><th>late</th></tr>");
+            for (var i = 1; i < arr1.length; i++) {
+                $('#tblLate').append("<tr><td>" + arr1[i].name + "</td><td>" + arr1[i].late + "</td></tr>");
+            }
+            $('#tblLate').toggle();
+        })
+        $('#excuse').click(function () { //excuse  button
+
+            $("#tblExcuse tr").remove();
+
+            $('#tblExcuse').append("<tr><th>Name</th><th>excuse</th></tr>");
+            for (var i = 1; i < arr1.length; i++) {
+                $('#tblExcuse').append("<tr><td>" + arr1[i].name + "</td><td>" + arr1[i].excuse + "</td></tr>");
+            }
+            $('#tblExcuse').toggle();
+        })
+        $("#requests").on("change", "#accept", function () {
+            var code = this.name + (Math.floor((Math.random() * 100)) + 1);
+            $(this).closest('tr').append("<td id='deleted'><a  href = 'mailto:" + this.value + "?subject =U20%R20%code&body=" + code + "'>Send Email</a></td>");
+            //mail to
+            $("#requests").on("click", "tr td  button", function () {
+
+                obj1 = {
+                    "userName": this.value,    //push in empolyees file
+                    "code": code,
+                    "password": this.id,
+                    "name": this.name,
+                    "attendance": "0",
+                    "excuse": "0",
+                    "late": "0",
+                    "abscent": "0"
+
                 }
-                $('#requests').toggle();
-               
-             })
-             $('#allEmp').click(function(){ //all empolyees  button
-                
-                $("#tblAll tr").remove();
-             
-                $('#tblAll').append("<tr><th>Name</th><th>Attendance</th><th>Excuse</th><th>late</th><th>Abscent</th></tr>");
-                 for(var i=1;i<arr1.length;i++){
-                    $('#tblAll').append("<tr><td>"+arr1[i].name+"</td><td>"+arr1[i].attendance+"</td><td>"+arr1[i].excuse+"</td><td>"+arr1[i].late+"</td><td>"+arr1[i].abscent+"</td></tr>");
-                }
-                $('#tblAll').toggle();
-              })
-              $('#late').click(function(){ //late  button
-                
-                $("#tblLate tr").remove();
-             
-                $('#tblLate').append("<tr><th>Name</th><th>late</th></tr>");
-                 for(var i=1;i<arr1.length;i++){
-                    $('#tblLate').append("<tr><td>"+arr1[i].name+"</td><td>"+arr1[i].late+"</td></tr>");
-                }
-                $('#tblLate').toggle();
-              })
-              $('#excuse').click(function(){ //excuse  button
-                
-                $("#tblExcuse tr").remove();
-             
-                $('#tblExcuse').append("<tr><th>Name</th><th>excuse</th></tr>");
-                 for(var i=1;i<arr1.length;i++){
-                    $('#tblExcuse').append("<tr><td>"+arr1[i].name+"</td><td>"+arr1[i].excuse+"</td></tr>");
-                }
-                $('#tblExcuse').toggle();
-              })
-              $("#requests").on("change", "#accept", function () {
-                 var code=this.name + (Math.floor((Math.random() * 100)) + 1);
-                 $(this).closest('tr').append("<td id='deleted'><a  href = 'mailto:" + this.value + "?subject =U20%R20%code&body=" + code + "'>Send Email</a></td>");
-              //mail to
-                 $("#requests").on("click", "tr td  button", function () {
-  
-                 obj1={"userName" :this.value ,    //push in empolyees file
-                      "code":code,
-                      "password":this.id,
-                      "name" :this.name,  
-                      "attendance":"0",
-                      "excuse":"0",
-                      "late":"0",
-                      "abscent":"0"
+                console.log(this.name);
+                arr1.push(obj1);
+                saveData(arr1, "alldata.json");
+                $(this).closest('tr').remove();
+                arr.find((c) => c.userName === this.value);
+                farr = arr.filter((elem) => elem.userName !== this.value);
+                // console.log(farr);
+                saveData(farr, "Requests.json");
+                $(this).closest('tr').remove();
 
-                    }
-                    console.log(this.name);
-                  arr1.push(obj1);
-                saveData(arr1,"alldata.json");
-                  $(this).closest('tr').remove();
-                    arr.find((c)=> c.userName === this.value );
-                        farr= arr.filter((elem)=> elem.userName !== this.value);
-                       // console.log(farr);
-                        saveData(farr,"Requests.json");
-                         $(this).closest('tr').remove();
-                     
-                   //console.log(this.id,this.value);
-                     })  })//end of accept
-                     $("#requests").on("change", "#refuse" , function () {
-                        
-                        arr.find((c)=> c.email === this.value && c.firstName===this.name );
-                        farr= arr.filter((elem)=> elem.email !== this.value && elem.firstName !==this.name );
-                         saveData(farr,"Requests.json");
-                         $(this).closest('tr').remove();
-                         
-    
-                            })
+                //console.log(this.id,this.value);
+            })
+        })//end of accept
+        $("#requests").on("change", "#refuse", function () {
+
+            arr.find((c) => c.email === this.value && c.firstName === this.name);
+            farr = arr.filter((elem) => elem.email !== this.value && elem.firstName !== this.name);
+            saveData(farr, "Requests.json");
+            $(this).closest('tr').remove();
 
 
-              function saveData(arr,path){
-                var _StoreData = new Blob([JSON.stringify(arr)], { type: "appliction/json" });
-  
-               var Linkelement = document.createElement("a");
-               Linkelement.href = window.webkitURL.createObjectURL(_StoreData);
-                Linkelement.setAttribute("download", path);
+        })
 
-                document.body.appendChild(Linkelement);
 
-                Linkelement.click();
-                document.body.removeChild(Linkelement);
+        function saveData(arr, path) {
+            var _StoreData = new Blob([JSON.stringify(arr)], { type: "appliction/json" });
 
-              }
-                 
+            var Linkelement = document.createElement("a");
+            Linkelement.href = window.webkitURL.createObjectURL(_StoreData);
+            Linkelement.setAttribute("download", path);
 
-                  
-                  
-              
-        
+            document.body.appendChild(Linkelement);
+
+            Linkelement.click();
+            document.body.removeChild(Linkelement);
+
+        }
+
+
+
+
+
+
     </script>
 </body>
+
 </html>
